@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+</head>
+<body>
+
+<form th:method="post" th:action="@{/auth/registration}" th:object="${person}">
+    <label for="username">enter your name</label>
+    <input type="text" th:field="*{username}" id="username"/>
+    <div style="color: red" th:if="${#fields.hasErrors('username')}"
+         th:errors="*{username}">wrong username
+    </div>
+    <br/>
+    <label for="age">how old are you?</label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <div style="color: crimson" th:if="${#fields.hasErrors('age')}"
+         th:errors="*{age}">wrong age
+    </div>
+    <br/>
+    <label for="password">enter your password</label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <div style="color: darkviolet" th:if="${#fields.hasErrors('password')}"
+         th:errors="*{password}">wrond password
+    </div>
+    <br/>
+    <input type="submit" value="Sign up"/>
+</form>
+
+</body>
+</html>
